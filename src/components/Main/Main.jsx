@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import './main.css'
+import s from './main.module.css'
 
 let a = 'Мой первый сайт на реакте'
 let b = 'Всем привет, я пишу свой первый сайт на реакте'
 
 function Main(){
     let [x,setX] = useState(0)
+    // console.log(title, subtitle)
     return(
         <main className="main">
-            <div className="container">
+            <div className={s.conteiner}>
                 <section className="section-content">
                     <div className="section-content-title">
                         <h1 className='main-title'>
@@ -24,6 +25,7 @@ function Main(){
                         <button className='main-btn' onClick={()=> setX(x += 1)}>
                             Click
                         </button>
+                        <button>SHOW</button>
                     </div>
                 </section>
             </div>
