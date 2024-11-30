@@ -2,12 +2,10 @@
     import { useState } from "react";
 
 
-    function Game ({currentQuestions}) {
-        const [title,setTitle] = useState(questions[0].title)
-        const [variants,setVariants] = useState(questions[0].variants)
-        function nextQuestion(e){
-            setTitle(questions[1].title)
-        }
+    function Game ({questions, step}) {
+        // function nextQuestion(e){
+        //     setTitle(questions[1].title)
+        // }
         return (
             <>
               <section>
@@ -17,12 +15,12 @@
                         <p>title</p>
                     </div>
                     <div>
-                        <button>variants[0]</button>
-                        <button>variants[1]</button>
-                        <button>variants[2]</button>
+                      <ul>
+                         {questions[step].variants.map(()=> (<li key={variants.id}>{variants.answer}</li>))}
+                      </ul>
                     </div>
                     <div>
-                        <button onClick={nextQuestion}>Следующий вопрос</button>
+                        <button >Следующий вопрос</button>
                     </div>
                 </div>
               </section>
@@ -43,9 +41,9 @@
     
     
     function Quize() {
-        // const [] = useState() // step
-        // const [] = useState() // count
-        // const currentQuestions = questions[step]
+        const [step,setStep] = useState(0) // step
+        const [count,setCount] = useState(0) // count
+        
 
         function check(params) {
             
@@ -53,7 +51,7 @@
         
         return (
             <>
-                <Game />
+                <Game data={questions,step} />
             </>
           );
     }

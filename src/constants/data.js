@@ -16,7 +16,9 @@ const users = [
 const questions = [
     {
       title: 'React - это ... ?',
-      variants: ['библиотека', 'фреймворк', 'приложение'],
+      variants: [{id: 1, answer: 'библиотека'},
+                 {id: 2, answer: 'фреймворк'},
+                 {id: 3, answer: 'приложение'}],
       correct: 0,
     },
     {
