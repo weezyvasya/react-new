@@ -19,7 +19,6 @@ function Form() {
   const divExmpl = useRef()
 
   useEffect(()=>{
-    dialog.current.showModal()
     console.log(divExmpl.current)
   },[])
   

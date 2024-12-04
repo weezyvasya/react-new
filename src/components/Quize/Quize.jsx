@@ -1,60 +1,74 @@
-    import { questions } from "../../constants/data";
-    import { useState } from "react";
+import { questions } from "../../constants/data";
+import { useState } from "react";
+import "./Quize.css";
 
+function Game({ data, fn, step, allQwestion }) {
+  let progress = Math.round((step / allQwestion) * 100);
 
-    function Game ({questions, step}) {
-        // function nextQuestion(e){
-        //     setTitle(questions[1].title)
-        // }
-        return (
-            <>
-              <section>
-                <div>
-                    <div>
-                        <h3>Квиз</h3>
-                        <p>title</p>
-                    </div>
-                    <div>
-                      <ul>
-                         {questions[step].variants.map(()=> (<li key={variants.id}>{variants.answer}</li>))}
-                      </ul>
-                    </div>
-                    <div>
-                        <button >Следующий вопрос</button>
-                    </div>
-                </div>
-              </section>
-            </>
-        )
+  return (
+    <>
+      <section>
+        <div>
+          <div className="bar">
+            <div style={{ width: `${progress}%` }}></div>
+          </div>
+          <div>
+            <h3 className="title">{data.title}</h3>
+          </div>
+          <div>
+            <ul>
+              {data.variants.map((variant, ind) => (
+                <li onClick={() => fn(ind)} key={variant}>
+                  {variant}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Result({ trueAnswer, allQwestion }) {
+  return (
+    <>
+      <div>
+        <p>{`Вы ответили на ${trueAnswer} из ${allQwestion}`}</p>
+      </div>
+    </>
+  );
+}
+
+function Quize() {
+  const [step, setStep] = useState(0); // step
+  const [count, setCount] = useState(0); // count
+
+  let currentQuestion = questions[step];
+
+  function check(answer) {
+    setStep(step + 1);
+    if (answer === currentQuestion.correct) {
+      setCount(count + 1);
     }
+  }
 
+  return (
+    <>
+      <div class='qwez'>
+        {step !== questions.length ? (
+          <Game
+            data={currentQuestion}
+            fn={check}
+            step={step}
+            allQwestion={questions.length}
+          />
+        ) : (
+          <Result trueAnswer={count} allQwestion={questions.length} />
+        )}
+      </div>
+    </>
+  );
+}
 
-    function Result ({count}) {
-        return (
-            <>
-              Выводит результат
-            </>
-        )
-    }
-    
-    
-    
-    
-    function Quize() {
-        const [step,setStep] = useState(0) // step
-        const [count,setCount] = useState(0) // count
-        
-
-        function check(params) {
-            
-        }
-        
-        return (
-            <>
-                <Game data={questions,step} />
-            </>
-          );
-    }
-    
-    export default Quize;
-    
+export default Quize;
