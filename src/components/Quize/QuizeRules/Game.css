@@ -1,0 +1,32 @@
+.title{
+    padding: 15px;
+}
+
+
+.bar {
+    height: 10px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    background-color: rgb(191, 189, 189);
+}
+.bar > div  {
+    height: 100%;
+    border-radius: 30px;
+    background: linear-gradient(90deg, rgb(210, 32, 32) 0%, rgb(218, 131, 17) 80%);
+    transition: all 0.5s ease-in-out;
+}
+ul {
+    list-style: none;
+}
+li {
+    padding: 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(75, 73, 73, 0.3);
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: .4s;
+}
+li:hover {
+    border: 1px solid rgba(75, 73, 73, 0.6);;
+    transition: .4s;
+}
