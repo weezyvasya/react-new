@@ -13,6 +13,7 @@ function Quize() {
 
   function check(answer) {
     setStep(step + 1);
+
     if (answer === currentQuestion.correct) {
       setCount(count + 1);
     }

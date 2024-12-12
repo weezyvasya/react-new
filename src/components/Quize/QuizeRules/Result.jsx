@@ -1,7 +1,3 @@
-
-import { questions } from "../../../constants/data";
-import { useState } from "react";
-
 function Result({ trueAnswer, allQwestion }) {
     return (
       <>

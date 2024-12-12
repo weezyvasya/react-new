@@ -1,7 +1,3 @@
-import { questions } from "../../../constants/data";
-import { useState } from "react";
-
-
 
 function Game({ data, fn, step, allQwestion }) {
     let progress = Math.round((step / allQwestion) * 100);
