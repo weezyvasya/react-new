@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Counter({ data, plus, minus }) {
+function Counter({ data, plus, minus, sum }) {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0)
@@ -37,7 +37,7 @@ function Counter({ data, plus, minus }) {
       <div>
         <button disabled={name === '' || lastName === ''} onClick={() => plus(name, lastName, age)}>Add</button>
         <button disabled={!data.length} onClick={() => minus()}>RemoveLastUser</button>
-        <button>Count users' age</button>
+        <button onClick={() => sum()}>Count users' age</button>
       </div>
     </>
   );

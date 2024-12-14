@@ -25,16 +25,16 @@ function App() {
   }
 
   function sumAge(){
+    let resultSumArr = []
+    let finalSum = 0
     for (let i = 0; i < result.length; i++){
-      let resultSumArr = []
       return resultSumArr.push(result[i].age)
     }
     for (let i = 0; i < resultSumArr.length; i++){
-      let finalSum = 0
       finalSum += resultSumArr[i]
       return finalSum
     }
-    setSum(finalSum)
+    console.log(setSum(finalSum))
   }
   
   return (
@@ -45,7 +45,7 @@ function App() {
       <ListUsers data={users} />
       <Form />
       <Quize />
-      <Counter data={result} plus={plus} minus={minus} />
+      <Counter data={result} plus={plus} minus={minus} sum={sumAge}/>
       <ModalWindow />
     </div>
   );
