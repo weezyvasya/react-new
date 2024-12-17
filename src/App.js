@@ -24,17 +24,22 @@ function App() {
     setResult(newArr)//менять длинну массива
   }
 
-  function sumAge(){
-    let resultSumArr = []
-    let finalSum = 0
-    for (let i = 0; i < result.length; i++){
-      return resultSumArr.push(result[i].age)
-    }
-    for (let i = 0; i < resultSumArr.length; i++){
-      finalSum += resultSumArr[i]
-      return finalSum
-    }
-    console.log(setSum(finalSum))
+  function sumAge() {
+   // reduce [1,2,3,4] --> 10
+   // [{}{}{}] --> 56
+
+  let newValue = result.reduce((acc, obj)=> { return acc + Number(obj.age)}, 0)
+
+    // let resultSumArr = []
+    // let finalSum = 0
+
+    // for (let i = 0; i < result.length; i++){
+    //   resultSumArr.push(result[i].age)
+    // }
+    // for (let i = 0; i < resultSumArr.length; i++){
+    //   finalSum += Number(resultSumArr[i])
+    // }
+    setSum(newValue)
   }
   
   return (
@@ -45,7 +50,7 @@ function App() {
       <ListUsers data={users} />
       <Form />
       <Quize />
-      <Counter data={result} plus={plus} minus={minus} sum={sumAge}/>
+      <Counter data={result} plus={plus} minus={minus} sum={sumAge} sumResult={sum}/>
       <ModalWindow />
     </div>
   );

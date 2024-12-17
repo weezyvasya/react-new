@@ -1,9 +1,23 @@
 import { useState } from "react";
 
-function Counter({ data, plus, minus, sum }) {
+function Counter({ data, plus, minus, sum, sumResult }) {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState(0)
+
+
+  function random() {
+    let color = Math.ceil(Math.random() * (255 - 0) + 0);
+
+    let liColor = {
+      backgroundColor: `rgb(${color}, ${color}, ${color})`,
+    }
+
+    return liColor
+  }
+
+
+
 
   return (
     <>
@@ -30,14 +44,14 @@ function Counter({ data, plus, minus, sum }) {
       <div>
         {data.map((user) => (
           <ul>
-            <li key={user.id}>{`${user.name} ${user.lastName} ${user.age}`}</li>
+            <li style={random()} key={user.id}>{`${user.name} ${user.lastName} ${user.age}`}</li>
           </ul>
         ))}
       </div>
       <div>
         <button disabled={name === '' || lastName === ''} onClick={() => plus(name, lastName, age)}>Add</button>
         <button disabled={!data.length} onClick={() => minus()}>RemoveLastUser</button>
-        <button onClick={() => sum()}>Count users' age</button>
+        <button onClick={() => sum()}>{`Count users' sum ${sumResult}`}</button>
       </div>
     </>
   );
